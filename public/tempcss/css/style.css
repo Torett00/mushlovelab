@@ -26,7 +26,13 @@
 @import url(nice-select.css);
 
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
+.testbody{
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+}
+
+
 .hh33{
+
     text-align: center;
     font-size:  30px;
     margin: 0;
@@ -99,6 +105,7 @@ body {
     font-weight: normal;
     overflow-x: hidden;
     background: #ffffff !important;
+    
 }
 
 a {
@@ -781,9 +788,9 @@ button {
 .blog_section::before {
     content: '';
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background-image: url(../images/img-1.png);
+    width: 150px;
+    height: 150px;
+    background-image: url(../images/10.png);
     background-size: 100%;
     background-repeat: no-repeat;
     left: 0px;
@@ -869,9 +876,9 @@ button {
 .contact_section::after {
     content: '';
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background-image: url(../images/img-1.png);
+    width: 150px;
+    height: 150px;
+    background-image: url(../images/10.png);
     background-size: 100%;
     background-repeat: no-repeat;
     left: initial;

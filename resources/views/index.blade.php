@@ -51,7 +51,7 @@
                      </li>
                      
                      <li class="nav-item">
-                        <a class="nav-link" href="{{ url('contact')}}">Contact</a>
+                        <a class="nav-link" href="{{ url('contact-uss')}}">Contact</a>
                      </li>
                      @if(Auth::user())
                            
@@ -78,7 +78,7 @@
                         <ul>
                            <li><a href="#">Login</a></li>
                            <li><a href="#"><img src="tempcss/images/user-icon.png"></a></li>
-                           <li><a href="{{route('CartController.index')}}"><img src="tempcss/images/trolly-icon.png"></a></li>
+                           <li><a href="{{url('cart')}}"><img src="tempcss/images/trolly-icon.png"></a></li>
                            
                           
                         </ul>
@@ -150,7 +150,7 @@
                   <div class="border"></div>
                   <p class="about_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationconsectetur adipiscing </p>
                   <div class="read_bt_1"><a href="#">Read More</a></div>
-                  <div class="image_1"><img src="tempcss/images/img-1.png"></div>
+                  <div class="image_1"><img src="tempcss/images/much1.png" height="200px " width="200px"></div>
                </div>
             </div>
          </div>
@@ -169,7 +169,7 @@
             <div class="blog_section_2">
                <div class="row">
                   <div class="col-md-5">
-                     <div class="face_img"><img src="tempcss/tempcss/images/face-img.png" class="face_img"></div>
+                     <div class="face_img"><img src="tempcss/images/much1.png" class="face_img"></div>
                   </div>
                   <div class="col-md-7">
                      <h1 class="face_text">Face Cream Very mosurations</h1>
@@ -186,7 +186,7 @@
                      <div class="readmore_bt"><a href="#">Read More</a></div>
                   </div>
                   <div class="col-md-5">
-                     <div class="face_img"><img src="tempcss/images/face-img1.png" class="face_img"></div>
+                     <div ><img src="tempcss/images/INPRNT on Tumblr.jfif"   ></div>
                   </div>
                </div>
             </div>
@@ -199,14 +199,15 @@
             <h1 class="contact_taital">Contact Us</h1>
             <div class="contact_section_2">
                <div class="row">
-                  <div class="col-md-6">
-                     <div class="image_7"><img src="tempcss/images/img-7.png"></div>
+                  <div class="col-md-4" >
+                     <div class="image_7"><img src="tempcss/images/Muchlovelab.png" height="280px" width="550px"></div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                      <div class="mail_section_1">
                         <input type="text" class="mail_text" placeholder="Your Name" name="Your Name">
                         <input type="text" class="mail_text" placeholder="Phone Number" name="Phone Number">
                         <input type="text" class="mail_text" placeholder="Email" name="Email">
+                        <input type="text" class="mail_text" placeholder="subject" name="subject">
                         <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
                         <div class="send_bt"><a href="#">SEND</a></div>
                      </div>

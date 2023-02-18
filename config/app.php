@@ -194,8 +194,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
 
     ],
+    'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
 
     /*
     |--------------------------------------------------------------------------

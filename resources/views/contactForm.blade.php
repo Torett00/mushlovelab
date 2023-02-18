@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Product</title>
+      <title>Contact</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -30,39 +30,46 @@
       <!-- owl stylesheets -->
       <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet" />
    </head>
-   <body class="testbody"> 
+   <body>
       <!-- header section start -->
       
       <div class="header_section">
          <div class="container-fluid">
+         @if(Session::has('success'))
+                            <div class="alert alert-success">
+                                {{Session::get('success')}}
+                            </div>
+                        @endif
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <a class="logo" href="#"><img src="tempcss/images/3.png"></a>
+               <a class="logo" href="#"><img src="images/logo.png"></a>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                      <li class="nav-item active">
-                        <a class="nav-link" href="{{url('index')}}">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="">Product</a>
+                        <a class="nav-link" href="product.html">Product</a>
                      </li>
-                    
                      <li class="nav-item">
-                        <a class="nav-link" href="">Contact</a>
+                        <a class="nav-link" href="blog.html">Blog</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_menu">
                         <ul>
                            <li><a href="#">Login</a></li>
-                           <li><a ><img src="tempcss/images/user-icon.png"></a></li>
-                           <li><a href="{{route ('cart.liste')}}"><img src="tempcss/images/trolly-icon.png"></a></li>
-                           <li><a ><img src="tempcss/images/search-icon.png"></a></li>
+                           <li><a href="#"><img src="tempcss/images/user-icon.png"></a></li>
+                           <li><a href="#"><img src="tempcss/images/trolly-icon.png"></a></li>
+                           <li><a href="#"><img src="tempcss/images/search-icon.png"></a></li>
                         </ul>
                      </div>
                   </form>
@@ -71,108 +78,36 @@
          </div>
       </div>
       <!-- header section end -->
-      <!-- product section start -->
-      <div class="product_section layout_padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <h1 class="product_taital">Products</h1>
-                  <p class="product_text">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim</p>
-         
+      <!-- contact section start -->
+      <div class="contact_section layout_padding">
+         <div class="container-fluid">
+            <h1 class="contact_taital">Contact Us</h1>
+            <div class="contact_section_2">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="image_7"><img src="images/img-7.png"></div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="mail_section_1">
+                        <form method="POST" action="{{ route('contact.us.store') }}" id="contactUSForm">
+                            {{ csrf_field() }}
+                            <input type="text" class="mail_text" placeholder="Your Name" name="name">
+                            <input type="text" class="mail_text" placeholder="Email" name="email">
+                            <input type="text" class="mail_text" placeholder="Phone Number" name="phone">
+                            
+                            <input type="text" class="mail_text" placeholder="subject" name="subject">
+                            <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="message"></textarea>
+                            <button type="submit" class="btn btn-primary">
+					        Submit
+				            </button>
+                        </from>  
+                     </div>
+                  </div>
                </div>
             </div>
-          
-            @foreach ($products as $product)
-                              <div class="row">
-                                 
-                                          
-                                 <div class="card">
-                                             <div class="card p-3">
-                                                
-                                                <div class="d-flex justify-content-between align-items-center ">
-                                                      <div class="mt-2">
-                                                        
-                                                         <div class="mt-5">
-                                                            <h1 class="text-uppercase mb-0">{{ $product->product_name }}</h1>
-                                                            <h2 class="main-heading mt-0">${{ $product->price }}</h2>
-                                                            <div class="d-flex flex-row user-ratings">
-                                                                  <div class="ratings">
-                                                                  <i class="fa fa-star"></i>
-                                                                  <i class="fa fa-star"></i>
-                                                                  <i class="fa fa-star"></i>
-                                                                  <i class="fa fa-star"></i>
-                                                                  </div>
-                                                                  <h6 class="text-muted ml-1">4/5</h6>
-                                                            </div>
-                                                         </div>
-                                                      </div>
-                                                      <div class="image">
-                                                         <img src="/upload/imagesproduct/{{ $product->pict }}" width="200px" height="200px">
-                                                      </div>
-                                                </div>
-                                                
-                                                <div class="d-flex justify-content-between align-items-center mt-2 mb-2">
-                                                      <span>Available colors</span>
-                                                      <div class="colors">
-                                                         <span></span>
-                                                         <span></span>
-                                                         <span></span>
-                                                         <span></span>
-                                                      </div>
-                                                      <form action="{{ route('cart.storesssss') }}" method="POST" enctype="multipart/form-data">
-                                                         @csrf
-                                                         <input type="hidden" value="{{ $product->id }}" name="id">
-                                                         <input type="hidden" value="{{ $product->product_name }}" name="name">
-                                                         <input type="hidden" value="{{ $product->price }}" name="price">
-                                                         <input type="hidden" value="{{ $product->pict }}"  name="image">
-                                                         <input type="hidden" value="1" name="quantity">
-                                                         
-                                                       
-                                                      
-                                                </div>
-                                                
-                                                
-                                                <p>A great option weather you are at office or at home. </p>
-                                                
-                                                <button class="btn btn-danger">Add to cart</button>
-                                                </form>  
-                                             </div>
-                                            
-                                             @endforeach   
-                                 </div>
-                                  
-                                 
-                                 
-
-                              </div>
-                              
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
          </div>
       </div>
-      
-      <!-- product section start -->
+      <!-- contact section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container">
@@ -244,25 +179,7 @@
       <script src="tempcss/js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="tempcss/js/custom.js"></script>
       <!-- javascript --> 
-      <script src="tempcss/js/owl.carousel.js"></script>
+      <script src="js/owl.carousel.js"></script>
       <!-- owl carousel -->
-      <script>
-         $('.owl-carousel').owlCarousel({
-         loop:true,
-         margin:30,
-         nav:true,
-         responsive:{
-          0:{
-              items:1
-          },
-          600:{
-              items:3
-          },
-          1000:{
-              items:4
-          }
-         }
-         })
-      </script>
    </body>
 </html>

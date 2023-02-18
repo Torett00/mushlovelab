@@ -7,6 +7,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\userprodController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CarttController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,7 +42,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/', function () {
+Route::get('/index', function () {
     return view('index');
 });
 
@@ -63,6 +65,20 @@ Route::get('/admin', function () {
     return view('admindashboard');
 })->middleware(['auth', 'verified'])->name('admindashboard');
 */
+Route::get('/ax', function () {
+    return view('contactForm');
+});
+
+Route::get('aaa', [userprodController::class, 'index'])->name('products.liste');
+Route::get('cart', [CarttController::class, 'cartList'])->name('cart.liste');
+Route::post('cart', [CarttController::class, 'addToCart'])->name('cart.storesssss');
+Route::post('update-cart', [CarttController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CarttController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CarttController::class, 'clearAllCart'])->name('cart.clear');
+
+
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -70,3 +86,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// mail route senderr
+Route::get('contact-uss', [ContactController::class, 'index']);
+Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
+
+
+
+
