@@ -13,6 +13,9 @@
   <li class="nav-item">
     <a class="nav-link" href="{{ route('userproducts.create') }}">users</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('VariationController.index') }}">variation</a>
+  </li>
   
 </ul>
     </x-slot>

@@ -9,6 +9,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarttController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\VariationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,8 @@ Route::resource('productss', ProductController::class);
 
 Route::resource('userproducts', userprodController::class);
 Route::resource('CartController', CartController::class);
+Route::resource('VariationController', VariationController::class);
+
 
 
 
@@ -42,7 +45,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('index');
 });
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Minicommande;
+use App\Models\Variation;
 
 class userprodController extends Controller
 {
@@ -58,12 +59,13 @@ class userprodController extends Controller
      */
     public function show( Request $request ,$id)
 
-    {
+    { 
+            $variaa=Variation::where('product_id',$id)->get();
             $prod=Product::find($id);
 
          
-            return view('showproductuser', compact('prod'));
-        
+           
+            return view('showproductuser', ['prod' => $prod], ['variaa' => $variaa]);
       
     }
 

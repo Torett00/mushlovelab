@@ -17,10 +17,17 @@ class ProductSeeder extends Seeder
         $products = [
            
             [
-                'product_name' => 'seddderrr',
+                'product_name' => 'Prepoured Agar Petri Dish ',
+                'price' => 30,
+                'stock' => '100',
+                'description' => 'Prepoured petr ',
+                'pict' => '1676059500',
+            ],
+            [
+                'product_name' => 'Spawn Jars',
                 'price' => 6,
                 'stock' => 'lorem ipsum',
-                'description' => 'ahhhhhhhhhhhhhhhhhhhhhhhhhh',
+                'description' => '',
                 'pict' => '1676059500',
             ],
             [

@@ -18,6 +18,9 @@ class Product extends Model
         'pict',
         
     ];
+    public function variation(){
+        return $this->hasMany(variation::class);
+    }
  
 }
 

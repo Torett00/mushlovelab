@@ -36,7 +36,7 @@
       <div class="header_section">
          <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <a class="logo" href="#"><img src="tempcss/images/3.png"></a>
+               <a class="logo" href="#"><img src="tempcss/images/logoo.png"></a>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
@@ -45,15 +45,13 @@
                      <li class="nav-item active">
                         <a class="nav-link" href="{{url('index')}}">Home</a>
                      </li>
+                     
                      <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="">Product</a>
+                        <a class="nav-link" href="{{ route('userproducts.index') }}" >Product</a>
                      </li>
                     
                      <li class="nav-item">
-                        <a class="nav-link" href="">Contact</a>
+                     <a class="nav-link" href="{{ url('contact-uss')}}">Contact</a>
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
@@ -77,75 +75,61 @@
             <div class="row">
                <div class="col-md-12">
                   <h1 class="product_taital">Products</h1>
-                  <p class="product_text">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim</p>
+                  <h2 class="product_text">Our products made in sterile environment in front of H14 Flowhood with extra care </h2>
          
                </div>
             </div>
           
-            @foreach ($products as $product)
-                              <div class="row">
-                                 
-                                          
-                                 <div class="card">
-                                             <div class="card p-3">
-                                                
-                                                <div class="d-flex justify-content-between align-items-center ">
-                                                      <div class="mt-2">
-                                                        
-                                                         <div class="mt-5">
-                                                            <h1 class="text-uppercase mb-0">{{ $product->product_name }}</h1>
-                                                            <h2 class="main-heading mt-0">${{ $product->price }}</h2>
-                                                            <div class="d-flex flex-row user-ratings">
-                                                                  <div class="ratings">
-                                                                  <i class="fa fa-star"></i>
-                                                                  <i class="fa fa-star"></i>
-                                                                  <i class="fa fa-star"></i>
-                                                                  <i class="fa fa-star"></i>
-                                                                  </div>
-                                                                  <h6 class="text-muted ml-1">4/5</h6>
-                                                            </div>
-                                                         </div>
-                                                      </div>
-                                                      <div class="image">
-                                                         <img src="/upload/imagesproduct/{{ $product->pict }}" width="200px" height="200px">
-                                                      </div>
-                                                </div>
-                                                
-                                                <div class="d-flex justify-content-between align-items-center mt-2 mb-2">
-                                                      <span>Available colors</span>
-                                                      <div class="colors">
-                                                         <span></span>
-                                                         <span></span>
-                                                         <span></span>
-                                                         <span></span>
-                                                      </div>
-                                                      <form action="{{ route('cart.storesssss') }}" method="POST" enctype="multipart/form-data">
-                                                         @csrf
-                                                         <input type="hidden" value="{{ $product->id }}" name="id">
-                                                         <input type="hidden" value="{{ $product->product_name }}" name="name">
-                                                         <input type="hidden" value="{{ $product->price }}" name="price">
-                                                         <input type="hidden" value="{{ $product->pict }}"  name="image">
-                                                         <input type="hidden" value="1" name="quantity">
-                                                         
-                                                       
-                                                      
-                                                </div>
-                                                
-                                                
-                                                <p>A great option weather you are at office or at home. </p>
-                                                
-                                                <button class="btn btn-danger">Add to cart</button>
-                                                </form>  
-                                             </div>
-                                            
-                                             @endforeach   
-                                 </div>
+                             
+                              
                                   
                                  
-                                 
-
+                        
+                               
+                        <div class="row">
+                        @foreach ($products as $prod)
+                         
+                              <div class="col-lg-4 col-sm-4">
+                                 <a href="{{ route('userproducts.show',$prod->id) }}">
+                                    <div class="box_main">
+                                       
+                                       <p class="price_text">{{$prod->product_name}} </p>
+                                       <div class="tshirt_img"><img src="/upload/imagesproduct/{{ $prod->pict }}"></div>
+                                       <div class="btn_main">
+                                          <h2 class="text">{{$prod->price}}Dt</h2>
+                                          <div class="seemore_bt"><a href="#"></a></div>
+                                       </div>
+                                    
+                                    </div>
+                                    <form action="{{ route('cart.storesssss') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $prod->id }}" name="id">
+                                                            <input type="hidden" value="{{ $prod->product_name }}" name="name">
+                                                            <input type="hidden" value="{{ $prod->price }}" name="price">
+                                                            <input type="hidden" value="{{ $prod->pict }}"  name="image">
+                                                            <input type="hidden" value="1" name="quantity">
+                                                            
+                                                         
+                                                         
+                                                     
+                                                   
+                                                   
+                                                            <h4 class="shirt_text">{{$prod->description}} </h4>
+                                                   
+                                                            <button type="submit" class="btn btn-outline-dark flex-shrink-0">
+                                    <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                                                </button>
+                                    </form>  
+                                 </a>
                               </div>
-                              
+                                                       
+                        @endforeach  
+                        </div>
+                     </div>
+                  </div>
+               </div>
+                               
          
          
          
@@ -206,22 +190,19 @@
             </div>
             <div class="footer_section_2">
                <div class="row">
-                  <div class="col-lg-3 col-md-6">
+                  <div class="col-lg-4 col-md-6">
                      <h3 class="company_text">Product</h3>
-                     <p class="dolor_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.Lorem ipsum dolor sit amet, </p>
+                     <p class="dolor_text">, </p>
                   </div>
-                  <div class="col-lg-3 col-md-6">
+                  <div class="col-lg-4 col-md-6">
                      <h3 class="company_text">Shop</h3>
-                     <p class="dolor_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.Lorem ipsum dolor sit amet, </p>
+                     <p class="dolor_text">MushLoveLab providing Mycelium and Mycology supplies for everyone worldwide , </p>
                   </div>
-                  <div class="col-lg-3 col-md-6">
-                     <h3 class="company_text">Company</h3>
-                     <p class="dolor_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.Lorem ipsum dolor sit amet, </p>
+                  <div class="col-lg-4 col-md-6">
+                     <h3 class="company_text">Shipping </h3>
+                     <p class="dolor_text">After receiving the payment we will ship your order within a day anywhere in Tunisia and worldwide , </p>
                   </div>
-                  <div class="col-lg-3 col-md-6">
-                     <h3 class="company_text">MY ACCOUNT</h3>
-                     <p class="dolor_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.Lorem ipsum dolor sit amet, </p>
-                  </div>
+                  
                </div>
             </div>
          </div>

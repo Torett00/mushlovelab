@@ -37,7 +37,7 @@
            <label for="exampleInputPassword1">
            description
            </label>
-           <input type="text" class="form-control"  name="description" maxlength="30" />
+           <input type="text" class="form-control"  name="description"  />
          </div>
          
          
